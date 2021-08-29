@@ -1,0 +1,9 @@
+html { font-family: sans-serif; background: #eee; padding: 1rem; background-image: url('/static/bp.jpg'); background-attachment: fixed}
+body { max-width: 960px; margin: 0 auto; background: aquamarine; }
+h1 { font-family: monospace; color: coral; justify-content:center; align-items:center; font-size: 60px;}
+nav { background: teal; display: flex; align-items: center; padding: 0 0.5rem; justify-content:center; align-items:center; border: 0.4rem solid; border-bottom: 0.2rem solid;}
+nav h1 { margin: 1.5;}
+.content { padding: 0 1rem 1rem; border: 0.4rem solid; border-top: 0.2rem solid;}
+.button1 {background-color: #4CAF50; border: none; color: white; text-align: center; text-decoration: none; display: inline-block; font-size: 16 px; margin: auto; cursor: pointer; width: 120px; height: 30px}
+.text1 { font-size: 16 px; margin: auto; width: 310px; height: 30px}
+.center {display: block; margin-left: auto; margin-right: auto}
