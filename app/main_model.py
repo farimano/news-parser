@@ -12,6 +12,17 @@ from collections import Counter
 from wordcloud import WordCloud, STOPWORDS
 
 
+headers = {
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
+    'referrer': 'https://google.com',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Pragma': 'no-cache'
+}
+
+
+
 def model(n, key_word):
     # 1. Parsing of urls from google.news
     url = url_generator(key_word)
@@ -19,22 +30,21 @@ def model(n, key_word):
 
     # 2. Parsing of articles, which have been collected on google.news
     corpus = []
+    global headers
     for link in list_links[:30]: # to reduce time-consuming
         try:
-            page = requests.get(link, timeout=10).text
-            parser = bs4.BeautifulSoup(page, 'lxml')
+            link = requests.head(link, stream=True).headers['Location']
+            req = requests.get(link, timeout=1.5, headers=headers)
+            if req.status_code < 400:
+                site = req.url.split('/')[2]
+                text = bs4.BeautifulSoup(req.text, 'lxml')
 
-            text = [parser.find('title').text]
-            body = [i.text for i in parser.findAll('p')]
-            text.extend(body)
-
-            corpus.append(text)
+                corpus.append((site, text))
         except:
             pass
 
     # 3. Cleaning and preprocessing
-    corpus = list(map(doc_edit, corpus))
-    corpus = [' '.join(i) for i in corpus]
+    corpus = parser_3000(corpus)
     clean_corpus = [clean_text(doc) for doc in corpus]
     clean_corpus = [i for i in clean_corpus if len(i)>=100]
 
