@@ -29,6 +29,6 @@ def template():
     out = None
     if request.method == 'POST':
         key_word = request.form.get('key_word')
-        KW.key_word = key_word
+        KW.key_word = str(key_word)
         out = '/plot'
     return render_template('base.html', title='temp', out=out)
