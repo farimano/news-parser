@@ -31,7 +31,7 @@ def model(n, key_word):
     # 2. Parsing of articles, which have been collected on google.news
     corpus = []
     global headers
-    for link in list_links[:30]: # to reduce time-consuming
+    for link in list_links[:100]: # to reduce time-consuming
         try:
             link = requests.head(link, stream=True).headers['Location']
             req = requests.get(link, timeout=1.5, headers=headers)
