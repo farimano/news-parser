@@ -124,3 +124,19 @@ def parser_3000(corpus):
         except:
             pass
     return new_corpus
+    
+# Second preprocessing of text
+def clean_text(s):
+    new_s = ''
+    sign = 0
+    for c in s:
+        if sign:
+            sign = 0
+        else:
+            if c == '’':
+                sign = 1
+            elif c in '.,\'?!|:(){}[]\"&%#$1234567890\\/-—><':
+                pass
+            else:
+                new_s = new_s + c
+    return new_s.upper()
