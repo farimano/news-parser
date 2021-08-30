@@ -113,7 +113,7 @@ def parser_3000(corpus):
                 content = ' '.join([i.text for i in h.findAll('p', {'class':None}) if i.text][:-3])
             
             else:
-                content = ''
+                ' '.join([i.text for i in h.findAll('p', {'class':None}) if i.text][:-3])
             
             text = title + ' ' + content
             
