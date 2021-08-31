@@ -85,9 +85,11 @@ def model(n, key_word):
         axis = fig.add_subplot(1, 1, 1)
         axis.text(0, 0, 'Sorry, not enough news for this topic.\nTry another one!', fontsize=20, ha='center', va='center', c='crimson', backgroundcolor='skyblue', family='monospace')
         axis.axis('off')
+        fig.tight_layout()
     except:
         fig = Figure()
         axis = fig.add_subplot(1, 1, 1)
         axis.text(0, 0, 'Oops, something goes wrong.\nPlease, try again!', fontsize=20, ha='center', va='center', c='crimson', backgroundcolor='skyblue', family='monospace')
         axis.axis('off')
+        fig.tight_layout()
     return fig
