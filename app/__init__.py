@@ -16,12 +16,12 @@ app = Flask(__name__)
 @app.route("/plot")
 def some_plot():
     key_word = KW.key_word
-    if type(key_word) == str:
-        fig = main_model.model(n=4, key_word=key_word)
-        KW.key_word = None
-        output = io.BytesIO()
-        FigureCanvasAgg(fig).print_png(output)
-        return Response(output.getvalue(), mimetype='image/png')
+    fig = main_model.model(n=4, key_word=key_word)
+    KW.key_word = None
+    output = io.BytesIO()
+    FigureCanvasAgg(fig).print_png(output)
+    return Response(output.getvalue(), mimetype='image/png')
+        
 
 
 @app.route("/", methods=['GET', 'POST'])
