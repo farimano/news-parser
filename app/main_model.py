@@ -25,6 +25,7 @@ headers = {
 
 def model(n, key_word):
     try:
+        assert type(key_word) == str
         # 1. Parsing of urls from google.news
         url = url_generator(key_word)
         list_links = generate_list_of_links(url)
