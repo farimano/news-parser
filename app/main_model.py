@@ -82,13 +82,13 @@ def model(n, key_word):
             axis.imshow(wc)
         fig.tight_layout()
     except ValueError:
-        fig = Figure(figsize=(6.8*0.6*1.05*1.5, 6.8*0.2*0.6))
+        fig = Figure(figsize=(6.8*0.6*1.05*1.55, 6.8*0.2*0.6*1.1))
         axis = fig.add_subplot(1, 1, 1)
         axis.text(0, 0, 'Sorry, not enough news for this topic.\nTry another one!', fontsize=20, ha='center', va='center', c='crimson', backgroundcolor='skyblue', family='monospace')
         axis.axis('off')
         fig.tight_layout()
     except:
-        fig = Figure(figsize=(6.8*0.6*1.05*1.2, 6.8*0.2*0.6))
+        fig = Figure(figsize=(6.8*0.6*1.05*1.15, 6.8*0.2*0.6*1.1))
         axis = fig.add_subplot(1, 1, 1)
         axis.text(0, 0, 'Oops, something goes wrong.\nPlease, try again!', fontsize=20, ha='center', va='center', c='crimson', backgroundcolor='skyblue', family='monospace')
         axis.axis('off')
