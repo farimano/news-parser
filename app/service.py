@@ -7,7 +7,7 @@ class WordCloudRunner(RunnerInterface):
         self.load_settings()
     
     def load_args(self):
-        parser = ArgumentParser(description="This microservice creates"\ 
+        parser = ArgumentParser(description="This microservice creates"\
             "several wordclouds for a chosen topic. The example:\npython"\
             " service.py Europe", formatter_class=RawTextHelpFormatter)
         parser.add_argument('topic', type=str)
