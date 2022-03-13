@@ -23,7 +23,7 @@ headers = {
 
 
 
-def model(n, key_word):
+def model(n:int, key_word:str):
     try:
         assert type(key_word) == str
         # 1. Parsing of urls from google.news
